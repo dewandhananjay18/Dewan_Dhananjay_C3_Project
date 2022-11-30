@@ -50,7 +50,8 @@ public class Restaurant {
         Item newItem = new Item(name,price);
         menu.add(newItem);
     }
-    
+
+
     public void removeFromMenu(String itemName) throws itemNotFoundException {
 
         Item itemToBeRemoved = findItemByName(itemName);
@@ -58,6 +59,11 @@ public class Restaurant {
             throw new itemNotFoundException(itemName);
 
         menu.remove(itemToBeRemoved);
+    }
+    // New Method to return cost of Item
+    public List<Integer> ItemWithCost(){
+        List<Integer> ItemCost = new ArrayList<Integer>();
+        return ItemCost;
     }
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"

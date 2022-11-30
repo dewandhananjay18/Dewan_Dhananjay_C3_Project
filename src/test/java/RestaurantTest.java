@@ -2,7 +2,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 
+import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
@@ -53,6 +57,12 @@ class RestaurantTest {
     public void removing_item_that_does_not_exist_should_throw_exception() {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
+    }
+    @Test
+    public void getting_item_cost_for_the_items_in_the_menu() throws itemNotFoundException{
+        List<Integer> CostFromMenu = restaurant.ItemWithCost();
+        List<Integer> CostExpected = Arrays.asList(119, 269);
+        assertTrue(CostFromMenu.equals(CostExpected));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
