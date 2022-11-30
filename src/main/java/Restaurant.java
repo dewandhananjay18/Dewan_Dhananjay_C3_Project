@@ -63,6 +63,9 @@ public class Restaurant {
     // New Method to return cost of Item
     public List<Integer> ItemWithCost(){
         List<Integer> ItemCost = new ArrayList<Integer>();
+        for(Item item: menu) {
+            ItemCost.add(item.getPrice());
+        }
         return ItemCost;
     }
     public void displayDetails(){
